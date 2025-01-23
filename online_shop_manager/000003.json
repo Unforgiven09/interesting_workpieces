@@ -1,0 +1,28 @@
+[
+    {
+        "f_name": "John",
+        "l_name": "White",
+        "tel": "0671567492",
+        "email": "example3@gmaail.com"
+    },
+    [
+        {
+            "product name": "pizza",
+            "price": "100",
+            "discount": "10",
+            "amount": "1"
+        },
+        {
+            "product name": "burger",
+            "price": "80",
+            "discount": "5",
+            "amount": "1"
+        },
+        {
+            "product name": "coke",
+            "price": "10",
+            "discount": "0",
+            "amount": "2"
+        }
+    ]
+]

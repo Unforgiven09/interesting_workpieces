@@ -1,0 +1,14 @@
+Seller info: 
+Seller name:   Firm Name
+Seller id:     12345678
+Seller phone:  0671234567
+Seller email:  info@firmname.com
+
+Client info: 
+Client name:   Vladimir Demchuk
+Client phone:  0674887811
+Client email:  example@gmaail.com
+
+|| Product name    || price  ||  disc  || amount || Total  ||
+|| pizza           || 100    || 10     || 1      || 90.00  ||
+Total price:                                        90.00

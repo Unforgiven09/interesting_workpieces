@@ -1,0 +1,16 @@
+[
+    {
+        "f_name": "Vladimir",
+        "l_name": "Demchuk",
+        "tel": "0674887811",
+        "email": "example@gmaail.com"
+    },
+    [
+        {
+            "product name": "pizza",
+            "price": "100",
+            "discount": "10",
+            "amount": "1"
+        }
+    ]
+]

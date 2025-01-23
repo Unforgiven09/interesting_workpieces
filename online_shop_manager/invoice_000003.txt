@@ -1,0 +1,16 @@
+Seller info: 
+Seller name:   Firm Name
+Seller id:     12345678
+Seller phone:  0671234567
+Seller email:  info@firmname.com
+
+Client info: 
+Client name:   John White
+Client phone:  0671567492
+Client email:  example3@gmaail.com
+
+|| Product name    || price  ||  disc  || amount || Total  ||
+|| pizza           || 100    || 10     || 1      || 90.00  ||
+|| burger          || 80     || 5      || 1      || 76.00  ||
+|| coke            || 10     || 0      || 2      || 20.00  ||
+Total price:                                        186.00

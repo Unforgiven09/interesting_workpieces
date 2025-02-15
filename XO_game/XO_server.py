@@ -112,6 +112,7 @@ def start_game():
 # Запуск сервера для одного игрока.
 HOST = '127.0.0.1'
 PORT = 12345
+# Добавим возможность заходить и выходить из комнаты для игры.
 rooms = {'1': '', '2': '', '3': ''}
 
 
@@ -147,7 +148,6 @@ print(f'Server starting at {HOST}:{PORT}')
 client_socket, addr = server_socket.accept()
 print(f'Client connected: {addr}')
 
-# if len(clients) == 2:
 while True:
     data = client_socket.recv(1024).decode()
     if not data or data.lower() == "exit":

@@ -82,7 +82,7 @@ def start_game():
         game = client_socket.recv(1024).decode()
         field = copy.deepcopy(clear_field)
         if game == 'n':
-            client_socket.sendall('Game finished'.encode())
+            break
         elif game == 'y':
             client_socket.sendall(print_field(field).encode())
             first_player = random.randint(0, 1)
@@ -106,11 +106,38 @@ def start_game():
             client_socket.sendall("Draw\n".encode()) if is_win(field, "X") == is_win(field, "0") else print('', end='')
         else:
             client_socket.sendall('Wrong input - choose y or n\n'.encode())
+    client_socket.sendall('Game finished'.encode())
 
 
 # Запуск сервера для одного игрока.
 HOST = '127.0.0.1'
 PORT = 12345
+rooms = {'1': '', '2': '', '3': ''}
+
+
+def join_room():
+    empty_rooms = []
+    for x, y in rooms.items():
+        if not y:
+            empty_rooms.append(x)
+    client_socket.sendall(f'You can join rooms {empty_rooms}.'.encode())
+    x = client_socket.recv(1024).decode()
+    if x in empty_rooms:
+        client_socket.sendall(f'You joined room {x}. "exit room" to quit room'.encode())
+        rooms[x] = {addr}
+    else:
+        client_socket.sendall(f'You can join rooms {empty_rooms}.'.encode())
+
+
+def exit_room():
+    result = ''
+    for x, y in rooms.items():
+        if y:
+            if addr in y:
+                rooms[x] = ''
+                result += f'You quit room {x}.'
+    client_socket.sendall(result.encode())
+
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind((HOST, PORT))
@@ -124,12 +151,15 @@ print(f'Client connected: {addr}')
 while True:
     data = client_socket.recv(1024).decode()
     if not data or data.lower() == "exit":
+        exit_room()
         break
     print(f'Client: {data}')
-    if data.lower() == 'start':
+    if data.lower() == 'rooms':
+        join_room()
+    elif data.lower() == 'start':
         start_game()
-    print(f'Client: {data}')
-    response = input('Server answer: ')
-    client_socket.sendall(response.encode())
+    elif data.lower() == 'exit room':
+        exit_room()
+
 client_socket.close()
 server_socket.close()

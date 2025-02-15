@@ -7,7 +7,8 @@ PORT = 12345
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect((HOST, PORT))
-print('Connecting to server.\nEnter "start" to start the game.\nEnter "exit" for quit.\nPress Enter to update!')
+print('Connecting to server.\nEnter "rooms" to enter room.\nEnter "start" to start the game.\n'
+      'Enter "exit" for quit.\nPress Enter to update!')
 
 while True:
     message = input()
